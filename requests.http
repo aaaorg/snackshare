@@ -1,0 +1,18 @@
+### Healthcheck
+GET http://localhost:5150/_health HTTP/1.1
+Host: localhost:5150
+Content-Type: application/json
+
+### Ping
+GET http://localhost:5150/_ping HTTP/1.1
+Host: localhost:5150
+Content-Type: application/json
+
+### Example POST request to localhost API
+POST http://localhost/api HTTP/1.1
+Host: localhost
+Content-Type: application/json
+
+{
+  "key": "value"
+}
