@@ -43,9 +43,10 @@ a {
 .navbar-nav {
   margin-bottom: 0;
 }
+
 .navbar-nav li {
-    display: inline-flex;
-    margin-right: 10px;
+  display: inline-flex;
+  margin-right: 10px;
 }
 
 .fixed-top {
@@ -74,6 +75,7 @@ body {
 .logo img {
   width: 250px;
 }
+
 footer {
   position: absolute;
   bottom: 0;
@@ -97,4 +99,9 @@ footer ul li:not(:last-child) {
   border-right: 1px solid #ccc;
   padding-right: 5px;
   height: 15px;
+}
+
+.button {
+  margin: 0 auto;
+  text-align: center;
 }

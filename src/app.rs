@@ -13,6 +13,7 @@ use loco_rs::{
 use migration::Migrator;
 use std::path::Path;
 
+use crate::initializers;
 #[allow(unused_imports)]
 use crate::{controllers, models::_entities::users, tasks, workers::downloader::DownloadWorker};
 
@@ -42,12 +43,17 @@ impl Hooks for App {
     }
 
     async fn initializers(_ctx: &AppContext) -> Result<Vec<Box<dyn Initializer>>> {
-        Ok(vec![])
+        Ok(vec![
+            Box::new(initializers::axum_session::AxumSessionInitializer),
+            Box::new(initializers::oauth2::OAuth2StoreInitializer),
+        ])
     }
 
     fn routes(_ctx: &AppContext) -> AppRoutes {
         AppRoutes::with_default_routes() // controller routes below
             .add_route(controllers::auth::routes())
+            .add_route(controllers::oauth2::routes())
+            .add_route(controllers::user::routes())
     }
     async fn connect_workers(ctx: &AppContext, queue: &Queue) -> Result<()> {
         queue.register(DownloadWorker::build(ctx)).await?;

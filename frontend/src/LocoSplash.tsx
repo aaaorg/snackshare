@@ -60,6 +60,11 @@ export const LocoSplash = () => {
         <h1>Loco: SaaS application</h1>
         <img src="https://loco.rs/icon.svg" className="logo" alt="Loco logo" />
       </div>
+      <div className="button">
+        <a
+          href="/api/oauth2/entraid"
+        >Login via Entra ID</a>
+      </div>
       <footer>
         <ul>
           <li>
